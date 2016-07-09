@@ -1,0 +1,55 @@
+Cluster:  0 of size 4103 with centroid 1af7_/d10890.pdb with cluster density score   4.4972
+Cluster:  1 of size 3126 with centroid 1af7_/d8741.pdb with cluster density score   4.8075
+Cluster:  2 of size 1654 with centroid 1af7_/d2208.pdb with cluster density score   3.9912
+Cluster:  3 of size 1192 with centroid 1af7_/d3424.pdb with cluster density score   3.6798
+Cluster:  4 of size 1030 with centroid 1af7_/d4212.pdb with cluster density score   3.6148
+Cluster:  5 of size 770 with centroid 1af7_/d4869.pdb with cluster density score   5.2668
+Cluster:  6 of size 362 with centroid 1af7_/d9361.pdb with cluster density score   3.1649
+Cluster:  7 of size 168 with centroid 1af7_/d4517.pdb with cluster density score   5.5568
+Cluster:  8 of size 82 with centroid 1af7_/d3062.pdb with cluster density score   3.6648
+Cluster:  9 of size 12 with centroid 1af7_/d11003.pdb with cluster density score   2.6255
+cluster center 0 to 1 distance:   4.8351
+cluster center 0 to 2 distance:   9.0380
+cluster center 0 to 3 distance:  10.6554
+cluster center 0 to 4 distance:   9.8168
+cluster center 0 to 5 distance:  10.1751
+cluster center 0 to 6 distance:  10.6238
+cluster center 0 to 7 distance:   9.8994
+cluster center 0 to 8 distance:   9.2873
+cluster center 0 to 9 distance:  13.2928
+cluster center 1 to 2 distance:   9.9383
+cluster center 1 to 3 distance:   7.5701
+cluster center 1 to 4 distance:  11.3581
+cluster center 1 to 5 distance:  10.1091
+cluster center 1 to 6 distance:  11.4785
+cluster center 1 to 7 distance:   7.9885
+cluster center 1 to 8 distance:   9.5702
+cluster center 1 to 9 distance:  13.9625
+cluster center 2 to 3 distance:  10.1503
+cluster center 2 to 4 distance:   6.7841
+cluster center 2 to 5 distance:   6.0660
+cluster center 2 to 6 distance:   6.8794
+cluster center 2 to 7 distance:  12.1488
+cluster center 2 to 8 distance:   8.3439
+cluster center 2 to 9 distance:  13.1357
+cluster center 3 to 4 distance:   7.6843
+cluster center 3 to 5 distance:   9.9001
+cluster center 3 to 6 distance:  12.2023
+cluster center 3 to 7 distance:   8.6732
+cluster center 3 to 8 distance:  10.1854
+cluster center 3 to 9 distance:  15.1741
+cluster center 4 to 5 distance:   7.4344
+cluster center 4 to 6 distance:  10.2072
+cluster center 4 to 7 distance:  11.4295
+cluster center 4 to 8 distance:  10.4256
+cluster center 4 to 9 distance:  13.3938
+cluster center 5 to 6 distance:   6.1221
+cluster center 5 to 7 distance:  10.4043
+cluster center 5 to 8 distance:  10.1565
+cluster center 5 to 9 distance:  13.8864
+cluster center 6 to 7 distance:  10.7131
+cluster center 6 to 8 distance:   8.8625
+cluster center 6 to 9 distance:  14.2175
+cluster center 7 to 8 distance:   9.6588
+cluster center 7 to 9 distance:  13.7975
+cluster center 8 to 9 distance:  12.6615

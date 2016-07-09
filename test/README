@@ -1,0 +1,36 @@
+A set of shell scripts are provided to test the installation of Protinfo_cluster
+
+The 1af7_ decoy set from Yang Zhang's Spicker test set is used. A file with the
+Tmscores and RMSDs from the experimental structure is also provided to evaluate
+the different methods.
+
+Due to the limitations of filesizes a link is provide to the directory to be downloaded
+The bzipped archive should uncompressed and placed in this directory
+
+Four tests are provided. 
+
+test_rmsd.densitysh test_rmsd.<avx,sse2,sse3>
+  
+Use RMSD as the metric to calculate density without creating a similarity matrix
+Best measure of RMSD calculation speed as write times to matrix are significant 
+given the speed of the RMSD calculations
+
+test_rmsd.sh test_rmsd.<avx,sse2,sse3>  
+
+Use RMSD as the metric to cluster 10,000 decoys using hierarchical clustering 
+with complete linkage.
+
+
+test_tmscore.sh test_tmscore.<avx,sse2,sse3>  
+
+Use TMscore as the metric to cluster 300 decoys using hierarchical clustering 
+with complete linkage.
+
+
+test_rmsd_tmscore.sh test_rmsd_tmscore.<avx,sse2,sse3>  
+
+Use RMSD as the metric and iterative density to prune an intial set of 10000
+structures to 300 and then using TMscore as a metric to cluster using kmeans.
+
+Hong Hung 2-13
+

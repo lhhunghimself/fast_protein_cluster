@@ -1,0 +1,130 @@
+Protinfo_cluster -i <input_file with decoy files or names> -o <output_file basename> --<options>
+
+options (can be all upper case or all lower case)
+
+Compute_type
+--cpu             CPU is used for computations - (default)
+--prune_cpu       CPU is used for pruning computations
+--cluster_cpu     CPU is used for cluster computations
+--gpu             GPU is used for computations - this is the default
+--prune_gpu       GPU is used for pruning computations
+--cluster_gpu     GPU is used for cluster computations
+
+Score_type
+--rmsd            RMSD is used as the similarity metric (default)
+--prune_rmsd      RMSD is used as the similarity metric for pruning
+--cluster_rmsd    RMSD is used as the similarity metric for clustering
+--tmscore         TMSCORE is used as the similarity metric
+--prune_tmscore   TMSCORE is used as the similarity metric for pruning
+--cluster_tmscore TMSCORE is used as the similarity metric for clustering
+
+simd_type
+--scalar	  normal scalar operations will be used (default)
+--sse2     SSE2 vectorization will be used when possible (Pentium 4 or newer, AMDK8 or newer)
+--sse3     SSE3 vectorization will be used when possible (Pentium 4 Prescott or newer, AMD Athlon 64 or newer)
+--avx		    AVX vectorization will be used when possible  (Sandy Bridge, Ivy Bridge, AMD Bulldozer/Piledriver)
+
+distance_matrix_storage
+--float				       Use float (single precision 4 bytes) to represent distances (default)
+--prune_float		   Use float (single precision 4 bytes) to represent distances in pruning step
+--cluster_float	 	Use float (single precision 4 bytes) to represent distances in cluster step
+--compact			      Use unsigned char (1 byte) to represent distances
+--prune_compact   Use unsigned char (1 byte) to represent distances in prune step
+--cluster_compact Use unsigned char (1 byte) to represent distances in cluster step
+
+Input/output 
+
+write matrix in binary form for clustering
+--write_matrix <matrix_file> 
+--write_binary_matrix  <matrix_file> 
+--cluster_write_matrix  <matrix_file> 
+--cluster_write_binary_matrix  <matrix_file>   
+
+write distance matrix in binary form for pruning
+--PRUNE_WRITE_MATRIX  <matrix_file> --prune_write_matrix <matrix_file>  
+--PRUNE_WRITE_BINARY_MATRIX  <matrix_file>  --prune_write_binary_matrix <matrix_file> 
+
+write distance matrix in text form
+--cluster_write_text_matrix  <matrix_file>    
+--prune_write_text_matrix <matrix_file> 
+
+write distance matrix in compact form 
+--cluster_write_compact_matrix  <matrix_file>    
+--prune_write_compact_matrix <matrix_file> 
+
+write cluster distance matrix in binary form
+--write_matrix <matrix_file> 
+--write_binary_matrix  <matrix_file> 
+--cluster_write_matrix  <matrix_file> 
+--cluster_write_binary_matrix  <matrix_file> 
+
+write prune distance matrix in binary form 
+--prune_write_matrix <matrix_file>  
+--prune_write_binary_matrix <matrix_file>
+
+input binary coordinates instead pdb_list (application will look for <input_file>.coords and <input_file>.names
+--binary_coords --BINARY_COORDS
+--cluster_binary_coords --CLUSTER_BINARY_COORDS
+--prune_binary_coords --PRUNE_BINARY_COORDS
+
+
+Cluster methods
+--nclusters		         number of clusters
+--prune_nclusters     number of clusters to be used in pruning
+
+Hierarchical
+--hcomplete           complete linkage hierarchical clustering (max distance between clusters used)
+--haverage            average linkage hierarchical clustering (average distance between clusters used)
+--hsingle             single linkage hierarchical clustering (min distance between clusters used)
+
+--cluster_hcomplete   clustering step: complete linkage hierarchical clustering (max distance between clusters used)
+--cluster_haverage    clustering step: average linkage hierarchical clustering (average distance between clusters used)
+--cluster_hsingle     clustering step: single linkage hierarchical clustering (min distance between clusters used)
+
+--prune_hcomplete     prune using average distance to centers of clusters from complete linkage hierarchical clustering
+--prune_haverage     prune using average distance to centers of clusters from average linkage hierarchical clustering
+--prune_hsingle      prune using average distance to centers of clusters from single linkage hierarchical clustering
+
+kmeans 
+--kmeans --cluster_kmeans       use kmeans for clustering step (default) -cannot use for pruning
+--min_cluster_size <n>          minimum cluster size (kmeans only)
+--max_iterations <n>            max iterations for each random starting partition to converge to a final partition
+--total_seeds <n>               number of different starting partitions to try
+--converge_seeds <n>            number of starting partitions without improvement kmeans is said to have converged 
+--percentile <P>                used to calculate when the partition score is in the P percentile with confidence pvalue p
+--pvalue <p>                    P is a float value between 0-1 (higher is better value) and p is a positive float value
+--fixed centers <n>             the final n clusters of starting partition are not random but the most distant from the other clusters
+--fine_parallel                 uses finer level of parallelism for kmeans rather than the default seed level parallelism - useful for large sets and small numbers of seeds
+
+density
+--density --cluster_density     treat ensemble as single cluster and use min average distance to other structures to find center
+--prune_density                 use single cluster density as criteron for pruning (default) 
+--density_only                  calculate density only - does not create similarity matrix so it is very memory efficient O(n)
+--sort_density                  sort the densities in the density_only mode
+
+kcenters
+--kcenters --cluster_kcenters   use kcenters algorithm for clustering
+--prune_kcenters                use distance from centers of kcenters to prune
+
+pruning options
+--prune_until_size<size>        only option for all but density based pruning - prunes until the size of the ensemble is <size>
+--prune_stop_at_size            differs from prune_until_size by defining a minimum ensemble size regardless of other criteria
+--prune_outlier_ratio <r>       instead of removing the worst structure at each step use a ratio i.e. a ratio of .9 means that 99% best structures are kept after each step
+--prune_to_density <density>    prune until a threshhold average density <density> is reached
+--prune_stop_density <density>  stop pruning when average density reaches <density>
+--prune_zmode                   used in conjunction with --prune_to_density/--prune_stop_density for stopping criterion
+                                instead of <density> absolute values of density - <density> is number of standard deviations from mean
+gpu_options
+--gpu_id <id>                   specifies gpu whem there is more than one available
+--prune_gpu_id <id>             specifies gpu whem there is more than one available
+--cluster_gpu_id <id>           specifies gpu whem there is more than one available
+
+misc
+-i <filename>         file with list of PDBs in normal (PDB_LIST) mode
+                      file with list of names when similarity matrix is being read in
+                      file with basename for binary_coords mode - program expects files <file>.coords <file>.names
+-o <output_basename>  default is "output"
+-S <seed>  define integer seed to be used by random number generators
+-p <path>  define the path to the tmscore.cl and rmsd.cl kernels
+--help     output this text
+

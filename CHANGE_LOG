@@ -1,0 +1,11 @@
+First version for general release with license
+Hong Hung 9-8-2013
+
+
+1.1.1
+put back cluster membership output - puts cluster membership and cluster density in <output>.clusters file
+Hong Hung 9-19--2013
+
+1.1.2
+
+Edited text README to clarify the tests

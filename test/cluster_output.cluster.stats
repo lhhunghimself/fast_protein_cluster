@@ -1,0 +1,15 @@
+Cluster:  0 of size 36 with centroid 1af7_/d10079.pdb with cluster density score   0.6431
+Cluster:  1 of size 20 with centroid 1af7_/d10072.pdb with cluster density score   0.4984
+Cluster:  2 of size 19 with centroid 1af7_/d10062.pdb with cluster density score   0.5662
+Cluster:  3 of size 18 with centroid 1af7_/d10089.pdb with cluster density score   0.4339
+Cluster:  4 of size 7 with centroid 1af7_/d10038.pdb with cluster density score   0.8832
+cluster center 0 to 1 distance:   0.3422
+cluster center 0 to 2 distance:   0.4405
+cluster center 0 to 3 distance:   0.3063
+cluster center 0 to 4 distance:   0.2894
+cluster center 1 to 2 distance:   0.4643
+cluster center 1 to 3 distance:   0.2666
+cluster center 1 to 4 distance:   0.2703
+cluster center 2 to 3 distance:   0.2823
+cluster center 2 to 4 distance:   0.2856
+cluster center 3 to 4 distance:   0.3706

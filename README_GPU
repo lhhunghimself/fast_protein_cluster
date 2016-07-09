@@ -1,0 +1,50 @@
+The GPU installation requires that the appropriate proprietary drivers for the GPU. The
+OpenCL libraries must also be installed.
+
+Notes for AMD
+
+Install Catalyst 12 or newer drivers.
+
+Install AMDAPP2.5 or more recent. Protinfo_cluster expects the path to be /opt/AMDAPP but
+this can be changed by changing the compile flags. 
+
+The OpenCL kernels are by default stored in  /opt/AMDAPP/include 
+This can be changed using the -p option at runtime
+
+AMD GPUs must spawn an xhost whether or not there is an actual monitor attached. Instructions
+on how to run remote jobs in spite of this are described:
+
+http://devgurus.amd.com/message/1284840
+http://code.compeng.uni-frankfurt.de/projects/caldgemm/wiki/Headless_system
+
+In addition, some versions of the Catalyst driver will crash very long jobs unless they are 
+in an actual xterm. The workaround is to run the command using the xterm's -e option i.e 
+
+xterm -e 'Protinfo_cluster <options>  >& captured_screen'
+
+Hopefully this has been fixed in the newest drivers. The software requires GPUs that handle
+double precision.
+
+Notes for NVIDIA
+
+cuda must be installed. As of Aug 2013, OpenCL support for cuda-5 had not been released. In cuda-4
+some of the headers are not present and must be downloaded (thanks to Suhail A Islam for this)
+
+cd /usr/local/cuda/include/CL
+wget http://www.khronos.org/registry/cl/api/1.1/cl.hpp
+
+Aternatively the cl.hpp from AMDAPP can be used.
+
+The default location for cuda is /usr/local - and can be changed in the Makefile.
+
+The OpenCL kernels are by default stored in  /usr/local/cuda/include 
+This can be changed using the -p option at runtime
+
+NVIDIA does not require an xhost to run and instead provides a persistent mode. This is done by
+
+nvidia-smi -pm 1
+
+Alternatively you can set up an xhost as with AMD. However, the xhost can be terminated and the 
+GPU software can still be run subsequently without the xhost.
+
+Hong Hung 8-13

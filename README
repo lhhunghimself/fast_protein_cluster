@@ -1,0 +1,50 @@
+Protinfo-cluster can be compiled with the following flags 
+
+*simd flags -default is that scalar only options are enabled *
+SSE2=1            enables SSE2 support for older CPUs (Pentium IV, AMD K8)
+SSE3=1            enables SSE3 (and SSE2) support for most x86 CPUS (Pentium IV Prescott, AMD Opterons)
+AVX=1             enables AVX (and SSE3/SSE2) support for recent CPUS (SandyBridge/IvyBridge, Bulldozer/Piledriver)
+
+*compatibility flags - default is 64 bit with multithreaded options enabled using OpenMP* 
+32BIT=1           compiles 32 bit binary - default is 64 bit 
+SINGLE_THREADED=1 this flag is needed when OpenMP libraries are not installed or older gcc  (before gcc 4.2)
+
+*GPU flags*
+GPU=1 AMD=1       flags to compile GPU code - optimizations and library locations for AMD cards
+GPU=1 NVIDIA=1    flags	to compile GPU code - optimizations and	library	locations for NVIDIA cards
+
+*misc*
+FAST_DIVISION=1   use the rcp function for SSE/AVX implementation of TMScore - slightly faster with small loss of accuracy in rare cases 
+DEBUG=1           Debug mode
+
+To compile;
+
+make clean
+make <options> (eg. make SSE3=1 FAST_DIVISION=1 GPU=1 AMD=1) 
+
+For list of option flags
+
+Protinfo_cluster --help
+
+These are also listed in OPTIONS.txt 
+
+
+For GPUs OpenCL must be installed and the path of the OpenCL library pointed to in the Makefile
+AMD GPUs require installation of Catalyst drivers
+NVIDIA requires installation of CUDA 4 and NVIDIA drivers
+See separate README files for GPU
+
+A set of test scripts have been included in the test directory which includes a set of candidate
+structures from the Zhang test set and TMScores and RMSDs of those structures compared to the
+experimental structure.
+
+Output files:
+
+History file for hierarchical clustering is a paired list of the clusters joined
+History file for pruning is a list of the structures eliminated and the round.
+Cluster file lists the structure name, cluster number that it is a member of the average distance to the members of each cluster
+
+Hong Hung 8-18
+
+
+
